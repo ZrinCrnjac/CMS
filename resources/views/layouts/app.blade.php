@@ -34,7 +34,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        
+                        @foreach ($menus as $menu)
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=#>{{ $menu->name }}</a></li>
+                        @endforeach
                     </ul>
 
                     <!-- Right Side Of Navbar -->
