@@ -9,9 +9,16 @@
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <tbody>
+                            <tr>
+                                <th>Role</th>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                            </tr>
                             @foreach($users as $user)
                                 <tr>
-                                    
+                                    <td class="table-text">{{ $roles[$user->id - 1]->name }}</td>
+                                    <td class="table-text">{{ $user->name }}</td>
+                                    <td class="table-text">{{ $user->email }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

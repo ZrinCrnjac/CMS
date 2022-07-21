@@ -22,6 +22,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/users', 'App\Http\Controllers\UserController@user');
+    Route::get('/users', 'App\Http\Controllers\UserController@roles');
 
 });

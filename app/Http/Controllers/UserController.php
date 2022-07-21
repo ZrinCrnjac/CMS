@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Role;
 
 class UserController extends Controller
 {
@@ -10,7 +12,9 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function user(){
-        return view('users');
+    public function roles(Request $request){
+        $users = User::all();
+        $roles = Role::all();
+        return view('users', compact('users'), compact('roles'));
     }
 }
