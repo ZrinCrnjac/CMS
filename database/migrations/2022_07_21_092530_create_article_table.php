@@ -14,16 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('article', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('title');
             $table->text('content');
             $table->integer('writer')->unsigned();
             $table->timestamps();
-
-            $table
-                ->foreign('writer')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+            $table->foreign('writer')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -68,6 +68,7 @@
                                 </button>
                             </div>
                         </div>
+                        <input id="role" type="hidden" name="role" value="journalist">
                     </form>
                 </div>
             </div>
