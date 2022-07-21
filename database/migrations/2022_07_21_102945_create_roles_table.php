@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -13,14 +14,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('article', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->text('description');
-            $table->string('image');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });
+
+        $roles = [
+            ['name'=>'Administrator', 'created_at' => now()],
+            ['name'=>'Editor', 'created_at' => now()],
+            ['name'=>'Journalist', 'created_at' => now()],
+            ['name'=>'Guest', 'created_at' => now()]
+        ];
+
+        DB::table('roles')->insert($roles);
     }
 
     /**
@@ -30,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article');
+        Schema::dropIfExists('roles');
     }
 };

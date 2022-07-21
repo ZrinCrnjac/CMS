@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('article', function (Blueprint $table) {
+        Schema::create('menu_article', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('menu_id')->nullable()->constrained('menus')->onDelete('set null');
+            $table->foreignId('article_id')->nullable()->constrained('article')->onDelete('set null');
             $table->string('name');
-            $table->text('description');
-            $table->string('image');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
-            $table->timestamps();
+            $table->integer('order');
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article');
+        Schema::dropIfExists('menu_article');
     }
 };

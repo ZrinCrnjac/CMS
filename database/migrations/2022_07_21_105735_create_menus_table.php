@@ -13,14 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('article', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->text('description');
-            $table->string('image');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });
+
+        $menuTypes = [
+            ['name' => 'About us', 'created_at' => now()],
+            ['name' => 'News', 'created_at' => now()],
+            ['name' => 'Contact', 'created_at' => now()]
+        ];
+
+        DB::table('menus')->insert($menuTypes);
     }
 
     /**
@@ -30,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article');
+        Schema::dropIfExists('menus');
     }
 };
