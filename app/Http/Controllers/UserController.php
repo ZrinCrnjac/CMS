@@ -17,4 +17,16 @@ class UserController extends Controller
         $roles = Role::all();
         return view('users', compact('users'), compact('roles'));
     }
+
+    public function edit(User $user){
+        return view('editUser', [
+            'user' => $user,
+        ]);
+    }
+
+    public function delete(Request $request, User $user){
+        $user->delete();
+
+        return redirect('/users');
+    }
 }

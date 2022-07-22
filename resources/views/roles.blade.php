@@ -5,24 +5,22 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Users</div>
+                <div class="panel-heading">Roles</div>
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <tbody>
                             <tr>
-                                <th>Role</th>
+                                <th>Role ID</th>
                                 <th>Name</th>
-                                <th>E-mail</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
-                            @foreach($users as $user)
+                            @foreach($roles as $role)
                                 <tr>
-                                    <td class="table-text">{{ $roles[$user->id - 1]->name }}</td>
-                                    <td class="table-text">{{ $user->name }}</td>
-                                    <td class="table-text">{{ $user->email }}</td>
+                                    <td class="table-text">{{ $role->id }}</td>
+                                    <td class="table-text">{{ $role->name }}</td>
                                     <td>
-                                        <form action="{{ url('user/edit/' . $user->id) }}" method="GET" style="display: inline-block;">
+                                        <form action="{{ url('role/edit/' . $role->id) }}" method="GET" style="display: inline-block;">
                                             {{ csrf_field() }}
                                             <button type="submit" class="btn btn-warning">
                                                 <i class="fa fa-btn fa-edit"></i>Edit
@@ -30,7 +28,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="{{ url('user/delete/' . $user->id) }}" method="POST">
+                                        <form action="{{ url('role/delete/' . $role->id) }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
 
