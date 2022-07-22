@@ -33,6 +33,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::delete('/user/delete/{user}', 'App\Http\Controllers\UserController@delete');
 
+    Route::get('/user/{id}', 'App\Http\Controllers\UserController@profile');
+
+    Route::post('/user', 'App\Http\Controllers\UserController@updateUser');
+
     Route::get('/role/new', 'App\Http\Controllers\RoleController@new');
 
     Route::post('/role', 'App\Http\Controllers\RoleController@save');

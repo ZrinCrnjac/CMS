@@ -36,4 +36,21 @@ class UserController extends Controller
         $user->update($request->all());
         return redirect('/users');
     }
+
+    public function profile($id){
+        return view('profile')->with('user', User::find($id));
+    }
+
+    public function updateUser(Request $request){
+        $data = $request->all();
+
+        $user = User::find($data['id']);
+
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = $data['password'];
+        $user->save();
+
+        return redirect('/users');
+    }
 }
