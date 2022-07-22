@@ -34,4 +34,15 @@ class RoleController extends Controller
         return redirect('/roles');
     }
 
+    public function new(){
+        return view('createRole');
+    }
+
+    public function save(Request $request){
+        $newRole = new Role;
+        $newRole->name = $request->name;
+        $newRole->save();
+
+        return redirect('/roles');
+    }
 }

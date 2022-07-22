@@ -7,6 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Roles</div>
                 <div class="panel-body">
+                    <a href="{{ url('role/new/') }}"><button type="submit" class="btn btn-success">
+                        <i class="fa fa-btn fa-save"></i>New role
+                    </button></a>
                     <table class="table table-striped task-table">
                         <tbody>
                             <tr>
