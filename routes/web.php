@@ -29,6 +29,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::delete('/user/delete/{user}', 'App\Http\Controllers\UserController@delete');
 
+    Route::post('/user/{user}', 'App\Http\Controllers\UserController@update');
+
+    Route::delete('/user/delete/{user}', 'App\Http\Controllers\UserController@delete');
+
     Route::get('/roles', 'App\Http\Controllers\RoleController@index');
 
     Route::get('/role/edit/{role}', 'App\Http\Controllers\RoleController@edit');

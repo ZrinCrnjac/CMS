@@ -19,14 +19,21 @@ class UserController extends Controller
     }
 
     public function edit(User $user){
+        $roles = Role::all();
         return view('editUser', [
             'user' => $user,
+            'roles' => $roles
         ]);
     }
 
     public function delete(Request $request, User $user){
         $user->delete();
 
+        return redirect('/users');
+    }
+
+    public function update(Request $request, User $user){
+        $user->update($request->all());
         return redirect('/users');
     }
 }

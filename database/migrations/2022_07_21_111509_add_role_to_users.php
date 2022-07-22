@@ -20,6 +20,10 @@ return new class extends Migration
         $adminUser = ['name' => 'admin', 'email' => 'admin@mail.com', 'email_verified_at' => now(), 'password' => Hash::make("adminadmin"), 'role_id' => 1, 'created_at'=> now()];
 
         DB::table('users')->insert($adminUser);
+
+        $guestUser = ['name' => 'Zrin', 'email' => 'zrin.crnjac@gmail.com', 'email_verified_at' => now(), 'password' => Hash::make("12345678"), 'role_id' => 4, 'created_at' => now()];
+
+        DB::table('users')->insert($guestUser);
     }
 
     /**

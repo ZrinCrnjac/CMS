@@ -13,12 +13,12 @@
                                 <th>Role</th>
                                 <th>Name</th>
                                 <th>E-mail</th>
-                                <th>Edit</th>
+                                <th>Edit role</th>
                                 <th>Delete</th>
                             </tr>
                             @foreach($users as $user)
                                 <tr>
-                                    <td class="table-text">{{ $roles[$user->id - 1]->name }}</td>
+                                    <td class="table-text">{{ $roles[$user->role_id - 1]->name }}</td>
                                     <td class="table-text">{{ $user->name }}</td>
                                     <td class="table-text">{{ $user->email }}</td>
                                     <td>
