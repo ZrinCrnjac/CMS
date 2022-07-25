@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('menu_article', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('menu_id')->nullable()->constrained('menus')->onDelete('set null');
-            $table->foreignId('article_id')->nullable()->constrained('article')->onDelete('set null');
+            $table->foreignId('article_id')->nullable()->constrained('articles')->onDelete('set null');
             $table->string('name');
             $table->integer('order');
         });

@@ -49,4 +49,24 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/role/{role}', 'App\Http\Controllers\RoleController@update');
 
+    Route::get('/menu', 'App\Http\Controllers\MenuController@index');
+
+    Route::get('/menu/new', 'App\Http\Controllers\MenuController@new');
+
+    Route::get('/menu/edit/{menu}', 'App\Http\Controllers\MenuController@edit');
+
+    Route::delete('/menu/delete/{menu}', 'App\Http\Controllers\MenuController@delete');
+
+    Route::get('/article', 'App\Http\Controllers\ArticleController@index');
+
+    Route::get('/article/new', 'App\Http\Controllers\ArticleController@new');
+
+    Route::get('/article/edit/{article}', 'App\Http\Controllers\ArticleController@edit');
+
+    Route::delete('/article/delete/{article}', 'App\Http\Controllers\ArticleController@delete');
+
+    Route::post('/article', 'App\Http\Controllers\ArticleController@save');
+
+    Route::post('/article/{article}', 'App\Http\Controllers\ArticleController@update');
+
 });

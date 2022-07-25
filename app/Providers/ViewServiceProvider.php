@@ -11,8 +11,8 @@ class ViewServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $menus = Menu::all();
+        //$menus = Menu::all();
         
-        View::share('menus', $menus);
+        //View::share('menus', $menus);
     }
 }

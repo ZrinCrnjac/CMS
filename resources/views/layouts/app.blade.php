@@ -57,8 +57,15 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/article/') }}">Articles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/menu/') }}">Menus</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/user/' . Auth::user()->id) }}">Profile</a>
                             </li>
+                            
                             @if (Auth::user()->role_id == 1)
                             
                             <li class="nav-item">
