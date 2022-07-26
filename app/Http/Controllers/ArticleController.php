@@ -59,4 +59,10 @@ class ArticleController extends Controller
 
         return redirect('/article');
     }
+
+    public function articleDetails(Article $article){
+        return view('articleView', [
+            'article' => $article,
+        ]);
+    }
 }
