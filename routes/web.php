@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::group(['middleware' => ['web']], function () {
     
@@ -77,8 +77,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('saveArticle', 'App\Http\Controllers\MenuController@saveATM')->middleware('editor');
 
-    Route::get('article/details/{article}', 'App\Http\Controllers\ArticleController@articleDetails')->middleware('editor');
+    Route::get('article/details/{article}', 'App\Http\Controllers\ArticleController@articleDetails');
 
-    Route::delete('deleteArticle/{menu}/{article}', 'App\Http\Controllers\MenuController@deletePost')->middleware('editor');
+    Route::delete('deleteArticle/{menu}/{article}', 'App\Http\Controllers\MenuController@deletePost');
+
+    Route::get('/home', 'App\Http\Controllers\ArticleController@home');
 
 });

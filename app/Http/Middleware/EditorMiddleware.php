@@ -16,7 +16,7 @@ class EditorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->role == null || $request->user()->role->id <= 2) {
+        if($request->user()->role == null || $request->user()->role->id > 2) {
             return redirect('/home');
         }
         return $next($request);

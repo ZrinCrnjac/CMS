@@ -16,7 +16,7 @@ class JournalistMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->role == null || $request->user()->role->id <= 3) {
+        if($request->user()->role == null || $request->user()->role->id == 4) {
             return redirect('/home');
         }
         return $next($request);

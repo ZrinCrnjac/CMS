@@ -65,4 +65,9 @@ class ArticleController extends Controller
             'article' => $article,
         ]);
     }
+
+    public function home(){
+        $articles = Article::all();
+        return view('home', compact('articles'));
+    }
 }
